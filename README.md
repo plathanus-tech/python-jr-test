@@ -33,7 +33,7 @@ That's it you are done! To run the tests run:
 ## The goal of the test
 
 One of our clients had an series of documents that may depend on others. He wants us to everytime he deletes an document all children documents are deleted as well. You've been designated to do this task. For this example, we're going to call the document as an `Node`.
-We're going to implement an `Node` class that will have an `id` and `parent`, and an `NodeManager` that will have an List of instance of the `Node`s. This Manager will have the `remove` that removes an single `Node` from the `nodes` member, and `remove_cascade` that will removes all `Node`s that has it as an parent, and all the `Node`s that have been removed, must remove all `Node`s that has it as an parent, and so on.
+We're going to implement an `Node` class that will have an `id` and `parent`, and an `NodeManager` that will have an List of instance of the `Node`s. This Manager will have the `remove` method that removes an single `Node` from the `nodes` member, and `remove_cascade` method that will removes all `Node`s that has it as an parent, and all the `Node`s that have been removed, must remove all `Node`s that has it as an parent, and so on.
 
 ## Hands ON
 
@@ -59,7 +59,7 @@ Here are the requirements for the `NodeManager`:
 2. It must receive an `List` of `Node` to be instanced, the `nodes` member should receive this `List`. If this condition is not satisfied you should raise an `ValueError` exception;
 3. This object must not mutate the received `List`;
 4. We should be able to see the number of nodes in the `nodes` member through the `NodeManager` instance. Done in the [`__len__ method`](https://docs.python.org/3/reference/datamodel.html?highlight=__len__#object.__len__).
-5. We should be able to get an `Node` object from the `nodes` member through the `NodeManager` instance like an list. Done in the [`**getitem** method](https://docs.python.org/3/reference/datamodel.html?highlight=__len__#object.__getitem__)
+5. We should be able to get an `Node` object from the `nodes` member through the `NodeManager` instance like an list. Done in the [`__getitem__ method`](https://docs.python.org/3/reference/datamodel.html?highlight=__len__#object.__getitem__)
 6. It must implement two methods `remove` and `remove_cascade`. They both receives an `Node` object to be removed from the `nodes` member and should return `None`.
 7. The `remove` and `remove_cascade` method should raise an `ValueError` if the received `Node` does not exist on the `nodes` member.
 8. The `remove` method must not remove its childrens.
