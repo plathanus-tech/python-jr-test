@@ -1,8 +1,8 @@
 import pytest
 from . import conftest
 from typing import get_type_hints, List, Dict, Any
-from nodes_done.manager import NodeManager
-from nodes_done.node import Node
+from nodes.manager import NodeManager
+from nodes.node import Node
 
 
 def assert_nodes_type_hint_on_hints(hints: Dict[str, Any]):

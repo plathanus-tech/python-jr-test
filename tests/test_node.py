@@ -1,5 +1,5 @@
 import pytest
-from nodes_done.node import Node
+from nodes.node import Node
 from typing import get_type_hints, Dict, Any
 from . import conftest
 
