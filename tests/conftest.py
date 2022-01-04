@@ -1,6 +1,6 @@
 import pytest, random
-from nodes_done.node import Node
-from nodes_done.manager import NodeManager
+from nodes.node import Node
+from nodes.manager import NodeManager
 from typing import get_type_hints, Dict, Any, Tuple, List
 
 
