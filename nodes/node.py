@@ -1,4 +1,4 @@
-def is_valid_value(id, parent) -> bool:
+def is_valid_node_params(id, parent) -> bool:
     is_params_int = isinstance(id, int) or isinstance(parent, int)
     is_id_greater = id > parent
 
@@ -13,7 +13,7 @@ class Node:
     parent: int
 
     def __init__(self, id: int, parent: int):
-        if is_valid_value(id, parent):
+        if is_valid_node_params(id, parent):
             self.id = id
             self.parent = parent
 
