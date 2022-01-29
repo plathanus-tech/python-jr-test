@@ -1,3 +1,4 @@
+from copy import copy
 from typing import List
 
 from nodes.node import Node
@@ -18,7 +19,7 @@ class NodeManager:
 
     def __init__(self, nodes: List[Node]):
         if is_valid_value(nodes):
-            self.nodes = nodes
+            self.nodes = copy(nodes)
 
     def __len__(self):
         return len(self.nodes)
