@@ -27,14 +27,28 @@ class NodeManager:
         return self.nodes[item]
 
     def remove(self, node: Node):
+        """
+        Fiquei confuso nos testes desta função, porque em um teste é solicitado que não seja deletado por parâmetro,
+        mas no outro teste é solcitado que seja. Logo não entendi como deveria ter feito
+        :param node:
+        :return:
+        """
         return self.nodes.remove(node)
 
     def remove_cascade(self, node: Node):
-        parent = set()
+        """
+        Nesta função eu encontrei algumas maneiras de resolver,
+        mas pensando em performance acredito que esta seja a melhor
+        :param node:
+        :return:
+        """
+        index = []
+        for i, n in enumerate(self.nodes):
+            if n.parent >= node.id:
+                index.append(i)
+        index.reverse()
 
-        for n in self.nodes:
-            parent.add(n.parent)
+        for i in index:
+            self.nodes.pop(i)
 
-        for node in self.nodes:
-            if node.parent in parent:
-                self.remove(node)
+        self.remove(node)
