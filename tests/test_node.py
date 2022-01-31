@@ -48,9 +48,12 @@ def test_node_init_holds_id_parent_attrs():
     assert getattr(node, "parent", 0) == 1
 
 
-def test_node_repr_returns_init_signature():
-    node = conftest.generate_random_node()
-    assert repr(node) == f"Node({node.id}, {node.parent})"
+def test_node_repr_can_be_instanced_and_is_equals_to_node():
+    node: Node = conftest.generate_random_node()
+    node_repr = repr(node)
+    node_from_repr = eval(node_repr)
+    assert node_from_repr.id == node.id
+    assert node_from_repr.parent == node.parent
 
 
 def test_node_does_not_accept_id_as_parent_of_itself():
