@@ -84,8 +84,10 @@ def test_nodemanager_remove_cascade_removes_all_childrens():
 
 def test_nodemanager_remove_cascade_removes_only_dependent_childrens():
     node_to_remove = Node(2, 1)
+    node_to_keep = Node(1, 0)
+    another_node_to_keep = Node(9, 0)
     nodes = [
-        Node(1, 0),
+        node_to_keep,
         node_to_remove,
         Node(3, 2),
         Node(4, 2),
@@ -93,7 +95,10 @@ def test_nodemanager_remove_cascade_removes_only_dependent_childrens():
         Node(6, 5),
         Node(7, 6),
         Node(8, 7),
+        another_node_to_keep,
     ]
     manager = NodeManager(nodes)
     manager.remove_cascade(node_to_remove)
-    assert len(manager.nodes) == 1
+    assert len(manager.nodes) == 2
+    assert node_to_keep in manager.nodes
+    assert another_node_to_keep in manager.nodes
