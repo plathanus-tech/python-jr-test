@@ -76,12 +76,14 @@ Given the `List`[`Node`] below:
         Node(6, 5),
         Node(7, 6),
         Node(8, 7),
+        Node(9, 0),
     ]
 
 If you call `remove_cascade` on the manager instance for the `Node(2, 1)` the `nodes` member must look like below:
 
     [
         Node(1, 0),
+        Node(9, 0),
     ]
 
 This is expected because when we excluded the `Node` with `id` 2, the `Node`s that has `id`s 3, 4, 5 as `parent` must be excluded, and the same is for the `Node` with `id` 6, that has the `Node` with 5 as `parent` and so on..
