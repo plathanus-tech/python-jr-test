@@ -22,9 +22,9 @@ This tutorial snippets assumes you uses Linux. For installation on other OS chec
 
 > source venv/bin/activate
 
-**Install pytest:**
+**Install requirements:**
 
-> pip install pytest
+> pip install -r requirements.txt
 
 That's it you are done! To run the tests run:
 

@@ -1,21 +1,43 @@
-
 class Node:
+        """
+        A class used to define the structure of the Nodes
+
+        Attributes
+        ----------
+        id : int
+            the Node's id, it's unique 
+        parent: int
+            the Node's parent, e.g. parent is the id of an other Node
+        """
+
+    id: int
+    parent: int
+
     def __init__(self, id: int, parent: int):
-        if (type(id) != int) or (type(parent) != int):
+        """
+        Class constructor
+        
+        Makes sure that the type of id and parent is int, if it's not, raise an ValueError
+        Makes sure that the Node's parent isn't greater than or equal to the Node's id, if it's, raise an ValueError
+
+        Parameters
+        ----------
+        id : int
+            the Node's id, it's unique 
+        parent: int
+            the Node's parent, e.g. parent is the id of an other Node
+        """
+        if (not isinstance(id, int)) or (not isinstance(parent, int)):
             raise ValueError("Document Id and Document Parent should be integers!")
         elif parent >= id:
             raise ValueError("Parent can't be equal or greater than id!")
-
-        else:
-            self.id: int = id
-            self.parent: int = parent
+        self.id: int = id
+        self.parent: int = parent
 
     def __repr__(self) -> str:
-        return "Node({},{})".format(self.id, self.parent)
+        """
+        Makes sure that the representation of the Node is equal to the way it's instanced, return a string of its representation
 
-if __name__ == "__main__":
-    node1 = Node(1,0)
-    node2 = Node(2,1)
-    node3 = Node(3,1)
-    node2 = Node(2,1)
-    # node4 = Node(3,3)
+        Doesn't receive any parameter
+        """
+        return "Node({},{})".format(self.id, self.parent)
