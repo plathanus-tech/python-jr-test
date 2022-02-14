@@ -22,6 +22,8 @@ class Node:
     def __repr__(self) -> str:
         return f'Node({self.id}, {self.parent})'
 
-    def __eq__(self, other):
-        if isinstance(other, Node):
-            return self.id == other.id and self.parent == other.parent
+    def id_num(self) -> int:
+        return self.id
+
+    def parent_num(self) -> int:
+        return self.parent
