@@ -59,6 +59,9 @@ class NodeManager:
         -------
         None
         """
+        if elem not in self.nodes:
+            raise ValueError("Node object not found")
+            
         self.nodes.remove(elem)
 
     def remove_cascade(self, elem: Node) -> None:
@@ -74,6 +77,8 @@ class NodeManager:
         -------
         None
         """
+        if elem not in self.nodes:
+            raise ValueError("Node object not found")
 
         # parents = [elem.id]
         # items_to_delete = [elem]
