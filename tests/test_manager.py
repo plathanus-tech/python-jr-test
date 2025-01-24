@@ -1,5 +1,4 @@
 import pytest
-from . import conftest
 from typing import get_type_hints, List, Dict, Any
 from nodes.manager import NodeManager
 from nodes.node import Node
@@ -7,7 +6,7 @@ from nodes.node import Node
 
 def assert_nodes_type_hint_on_hints(hints: Dict[str, Any]):
     assert "nodes" in hints
-    assert List[Node] == hints.get("nodes")
+    assert hints.get("nodes") is List[Node]
 
 
 def test_nodemanager_nodes_attr_has_type_hints():
@@ -30,8 +29,8 @@ def test_nodemanager_raises_given_non_sequence():
         NodeManager(1)
 
 
-def test_nodemanager_accepts_list():
-    node_list = conftest.random_nodes()
+def test_nodemanager_accepts_list(random_nodes):
+    node_list = random_nodes
     NodeManager(node_list)
 
 

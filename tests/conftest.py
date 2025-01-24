@@ -13,13 +13,15 @@ def random_integers() -> Tuple[int, int]:
     return random.randint(25000, 50000), random.randint(0, 25000)
 
 
+@pytest.fixture
 def generate_random_node() -> Node:
     id, parent = random_integers()
     return Node(id, parent)
 
 
-def random_nodes() -> List[Node]:
-    return [generate_random_node() for _ in range(100)]
+@pytest.fixture
+def random_nodes(generate_random_node) -> List[Node]:
+    return [generate_random_node for _ in range(100)]
 
 
 @pytest.fixture
