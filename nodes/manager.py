@@ -80,15 +80,6 @@ class NodeManager:
         if elem not in self.nodes:
             raise ValueError("Node object not found")
 
-        # parents = [elem.id]
-        # items_to_delete = [elem]
-        # for item in self.nodes:
-        #     if item.parent in parents:
-        #         parents.append(item.id)
-        #         items_to_delete.append(item)
-        #
-        # [self.remove(item) for item in items_to_delete[::-1]]
-
         parents = [item for item in self.nodes if item.parent == elem.id]
         for item in parents:
             self.remove_cascade(item)
